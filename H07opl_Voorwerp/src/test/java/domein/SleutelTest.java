@@ -6,12 +6,12 @@ import org.junit.jupiter.api.Test;
 
 import domein.Sleutel;
 
-public class SleutelTest {
+class SleutelTest {
 
     private Sleutel sleutel1, sleutel2, sleutel3;
 
     @BeforeEach
-    public void before() 
+    void before() 
     {
         sleutel1 = new Sleutel("schuur", 1.5, 1, 3);
         sleutel2 = new Sleutel("geheime kamer", 0.9, 5, 10);
@@ -19,7 +19,7 @@ public class SleutelTest {
     }
 
     @Test
-    public void maakSleutel_normaleWaarden_objectWordtGemaakt() 
+    void maakSleutel_normaleWaarden_objectWordtGemaakt() 
     {
         Assertions.assertEquals("schuur", sleutel1.getNaam());
         Assertions.assertEquals(1, sleutel1.getNiveau());
@@ -28,19 +28,19 @@ public class SleutelTest {
     }
 
     @Test
-    public void maakSleutel_deurTeKlein_werptException() 
+    void maakSleutel_deurTeKlein_werptException() 
     {
         Assertions.assertThrows(IllegalArgumentException.class, () -> new Sleutel("schuur", 1.5, 1, -20));
     }
     
     @Test
-    public void maakSleutel_deurTeKleinGrens_werptException() 
+    void maakSleutel_deurTeKleinGrens_werptException() 
     {
         Assertions.assertThrows(IllegalArgumentException.class, () -> new Sleutel("schuur", 1.5, 1, -1));
     }
     
     @Test
-    public void maakSleutel_normaleWaardenDeurGrens_objectWordtGemaakt() 
+    void maakSleutel_normaleWaardenDeurGrens_objectWordtGemaakt() 
     {
         Assertions.assertEquals("tuinberging", sleutel3.getNaam());
         Assertions.assertEquals(7, sleutel3.getNiveau());
@@ -49,7 +49,7 @@ public class SleutelTest {
     }
 
     @Test
-    public void getAantalInOmloop_teltObjectenInGeheugen_geeft1meerTerug() 
+    void getAantalInOmloop_teltObjectenInGeheugen_geeft1meerTerug() 
     {
         int aantal = Sleutel.getAantalInOmloop();
         new Sleutel("schuurke",1.5,1,2);
@@ -57,26 +57,26 @@ public class SleutelTest {
     }
 
     @Test
-    public void setDeur_negatieveWaarde_werptException() 
+    void setDeur_negatieveWaarde_werptException() 
     {
         Assertions.assertThrows(IllegalArgumentException.class, () -> sleutel2.setDeur(-5));
     }
 
     @Test
-    public void setDeur_toegelatenWaarde_wijzigtAttribuutNaar100() 
+    void setDeur_toegelatenWaarde_wijzigtAttribuutNaar100() 
     {
         sleutel2.setDeur(100);
         Assertions.assertEquals(100, sleutel2.getDeur());
     }
 
     @Test
-    public void pastOp_correctNummer_geeftTrueTerug() 
+    void pastOp_correctNummer_geeftTrueTerug() 
     {
         Assertions.assertTrue(sleutel1.pastOp(3));
     }
 
     @Test
-    public void pastOp_foutNummer_geeftFalseTerug() 
+    void pastOp_foutNummer_geeftFalseTerug() 
     {
         Assertions.assertFalse(sleutel1.pastOp(13));
     }
