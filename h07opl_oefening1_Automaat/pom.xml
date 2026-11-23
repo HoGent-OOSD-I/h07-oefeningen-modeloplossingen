@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>be.hogent</groupId>
-    <artifactId>H07opl_Automaat</artifactId>
+    <artifactId>h07opl_oefening1_Automaat</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
